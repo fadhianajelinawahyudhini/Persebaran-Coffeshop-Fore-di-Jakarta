@@ -1,2 +1,2 @@
 # Persebaran-Coffeshop-Fore-di-Jakarta
-Repository ini menampilkan persebaran Coffee Shop Fore di DKI Jakarta berdasarkan data koordinat lokasi outlet dan divisualisasikan menggunakan pendekatan Sistem Informasi Geografis (SIG) untuk melihat pola distribusinya.
+Repository ini menyajikan analisis persebaran Coffee Shop Fore di wilayah DKI Jakarta menggunakan pendekatan Sistem Informasi Geografis (SIG) berbasis data koordinat lokasi outlet serta penilaian masyarakat. Data diolah untuk menghasilkan visualisasi peta yang menunjukkan pola distribusi dan konsentrasi outlet di tiap wilayah administrasi Jakarta, sehingga dapat digunakan sebagai referensi analisis spasial, perencanaan lokasi, dan pembelajaran SIG.

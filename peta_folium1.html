@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_21c59882562e9e4c981e087138296bc9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_21c59882562e9e4c981e087138296bc9" ></div>
+        
+    
+
+<style>
+.legend-box {
+  position: fixed;
+  bottom: 55px;
+  left: 15px;
+  z-index: 9999;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  font-size: 13px;
+  width: 150px;
+}
+.legend-box h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+.legend-item {
+  margin-bottom: 6px;
+}
+.legend-color {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+</style>
+
+<div class="legend-box">
+  <h4>Keterangan</h4>
+
+  <div class="legend-item">
+    <span class="legend-color" style="background:red;"></span>
+    Rating Rendah
+  </div>
+  <div class="legend-item">
+    <span class="legend-color" style="background:orange;"></span>
+    Rating Sedang
+  </div>
+  <div class="legend-item">
+    <span class="legend-color" style="background:green;"></span>
+    Rating Tinggi
+  </div>
+
+  <hr style="margin:8px 0;">
+
+
+</div>
+
+</body>
+<script>
+    
+    
+            var map_21c59882562e9e4c981e087138296bc9 = L.map(
+                "map_21c59882562e9e4c981e087138296bc9",
+                {
+                    center: [-8.4095, 115.1889],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_21c59882562e9e4c981e087138296bc9);
+
+            
+
+        
+    
+            var tile_layer_65207069833294e6bd74d3c2ed1dd112 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_65207069833294e6bd74d3c2ed1dd112.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var tile_layer_a233498ebd917df5623a0a7f9a88d3a2 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a233498ebd917df5623a0a7f9a88d3a2.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var tile_layer_af2053ad3b3c5af9b11e428028c7e305 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_af2053ad3b3c5af9b11e428028c7e305.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var tile_layer_0314773d055dc6a1fca387812deffff5 = L.tileLayer(
+                "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 17,
+  "maxNativeZoom": 17,
+  "noWrap": false,
+  "attribution": "Map data: \u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href=\"http://viewfinderpanoramas.org\"\u003eSRTM\u003c/a\u003e | Map style: \u0026copy; \u003ca href=\"https://opentopomap.org\"\u003eOpenTopoMap\u003c/a\u003e (\u003ca href=\"https://creativecommons.org/licenses/by-sa/3.0/\"\u003eCC-BY-SA\u003c/a\u003e)",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0314773d055dc6a1fca387812deffff5.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var feature_group_8b4dd574cb47b6f56df6fb0a88da10ef = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7a766decf6e1ab6fada3e13bc1d07791 = L.marker(
+                [-6.1976, 106.8846],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_0009f5ffd9a6366546ebcafa5b4982a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0723f2928a4cdd1c02a6c477f386bd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ecc83f038fe7232bc86de1dcfd43489b = $(`<div id="html_ecc83f038fe7232bc86de1dcfd43489b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Rawamangun</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Timur     </div>     </div>`)[0];
+                popup_e0723f2928a4cdd1c02a6c477f386bd2.setContent(html_ecc83f038fe7232bc86de1dcfd43489b);
+            
+        
+
+        marker_7a766decf6e1ab6fada3e13bc1d07791.bindPopup(popup_e0723f2928a4cdd1c02a6c477f386bd2)
+        ;
+
+        
+    
+    
+                marker_7a766decf6e1ab6fada3e13bc1d07791.setIcon(icon_0009f5ffd9a6366546ebcafa5b4982a6);
+            
+    
+            var marker_5f4951bb296a62510a76d6ef34e49091 = L.marker(
+                [-6.1554, 106.9072],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_498e71704f9dfdf5d3ced0728cd04a36 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_94ee46c4b77cd4b8bfe49d2315d7e17b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce6394ee31805122b65759850f748237 = $(`<div id="html_ce6394ee31805122b65759850f748237" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Kirana Kelapa Gading</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Utara     </div>     </div>`)[0];
+                popup_94ee46c4b77cd4b8bfe49d2315d7e17b.setContent(html_ce6394ee31805122b65759850f748237);
+            
+        
+
+        marker_5f4951bb296a62510a76d6ef34e49091.bindPopup(popup_94ee46c4b77cd4b8bfe49d2315d7e17b)
+        ;
+
+        
+    
+    
+                marker_5f4951bb296a62510a76d6ef34e49091.setIcon(icon_498e71704f9dfdf5d3ced0728cd04a36);
+            
+    
+            var marker_eb581209ea9403e3e363fa79cbc78693 = L.marker(
+                [-6.1074, 106.7406],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_d22fc68ce7c19298eb7cfb0f8cf3d3ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d0c5c74d51cd7610bf448b8465ea8d62 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d16ff334adc9e812d3921fbd4b8f3ff = $(`<div id="html_3d16ff334adc9e812d3921fbd4b8f3ff" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Pantai Indah Kapuk</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Utara     </div>     </div>`)[0];
+                popup_d0c5c74d51cd7610bf448b8465ea8d62.setContent(html_3d16ff334adc9e812d3921fbd4b8f3ff);
+            
+        
+
+        marker_eb581209ea9403e3e363fa79cbc78693.bindPopup(popup_d0c5c74d51cd7610bf448b8465ea8d62)
+        ;
+
+        
+    
+    
+                marker_eb581209ea9403e3e363fa79cbc78693.setIcon(icon_d22fc68ce7c19298eb7cfb0f8cf3d3ff);
+            
+    
+            var marker_a02ffdb955ef04e16976ee404e1bb859 = L.marker(
+                [-6.3002, 106.8276],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_98a6ea07d558895e7066124bc8100f60 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b5726428984230e64ad0d395cad6f9aa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_59ee34e9a94282f26a43ccd3eae92051 = $(`<div id="html_59ee34e9a94282f26a43ccd3eae92051" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Kebagusan</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_b5726428984230e64ad0d395cad6f9aa.setContent(html_59ee34e9a94282f26a43ccd3eae92051);
+            
+        
+
+        marker_a02ffdb955ef04e16976ee404e1bb859.bindPopup(popup_b5726428984230e64ad0d395cad6f9aa)
+        ;
+
+        
+    
+    
+                marker_a02ffdb955ef04e16976ee404e1bb859.setIcon(icon_98a6ea07d558895e7066124bc8100f60);
+            
+    
+            var marker_306bcf6b556727e5376a28ad5b7d825c = L.marker(
+                [-6.3046, 106.7817],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_8aa0ffc3f2cf885c32bc877ef5e27015 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff55570d734e5a2d448376f0bf03c602 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b59a740d1b463b0f279f5be9be81382b = $(`<div id="html_b59a740d1b463b0f279f5be9be81382b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Pondok Labu</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_ff55570d734e5a2d448376f0bf03c602.setContent(html_b59a740d1b463b0f279f5be9be81382b);
+            
+        
+
+        marker_306bcf6b556727e5376a28ad5b7d825c.bindPopup(popup_ff55570d734e5a2d448376f0bf03c602)
+        ;
+
+        
+    
+    
+                marker_306bcf6b556727e5376a28ad5b7d825c.setIcon(icon_8aa0ffc3f2cf885c32bc877ef5e27015);
+            
+    
+            var marker_a7c5c6c157f13dcf6fed9152510257eb = L.marker(
+                [-6.2892, 106.7744],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_3fa9a0cb6ae9310be16cc830e632d642 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_13020bfdf156b99c1268ed1df9240207 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d887648dfdebd90a07a398074c4b8a60 = $(`<div id="html_d887648dfdebd90a07a398074c4b8a60" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Lebak Bulus</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.7<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_13020bfdf156b99c1268ed1df9240207.setContent(html_d887648dfdebd90a07a398074c4b8a60);
+            
+        
+
+        marker_a7c5c6c157f13dcf6fed9152510257eb.bindPopup(popup_13020bfdf156b99c1268ed1df9240207)
+        ;
+
+        
+    
+    
+                marker_a7c5c6c157f13dcf6fed9152510257eb.setIcon(icon_3fa9a0cb6ae9310be16cc830e632d642);
+            
+    
+            var marker_19b4a2fc51224f86354328a46ffd1363 = L.marker(
+                [-6.2714, 106.8086],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_d3338a528e166384fe3a12bbfe3d8800 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f8c96ca6691ec1cade301b4e4c4bb7c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6a0ff69274823970b9ab09d8c0381c9 = $(`<div id="html_c6a0ff69274823970b9ab09d8c0381c9" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cipete</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_f8c96ca6691ec1cade301b4e4c4bb7c0.setContent(html_c6a0ff69274823970b9ab09d8c0381c9);
+            
+        
+
+        marker_19b4a2fc51224f86354328a46ffd1363.bindPopup(popup_f8c96ca6691ec1cade301b4e4c4bb7c0)
+        ;
+
+        
+    
+    
+                marker_19b4a2fc51224f86354328a46ffd1363.setIcon(icon_d3338a528e166384fe3a12bbfe3d8800);
+            
+    
+            var marker_db1c6e415b91f653df0ae386b788e344 = L.marker(
+                [-6.2719, 106.7606],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_f9c667e024885da48efb7fe19d53118c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a51c825dbb50ae342d2ff3a6bd6565e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_934e2c4f086a18c59cfbdae9e6be216e = $(`<div id="html_934e2c4f086a18c59cfbdae9e6be216e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Bintaro Kesehatan</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_6a51c825dbb50ae342d2ff3a6bd6565e.setContent(html_934e2c4f086a18c59cfbdae9e6be216e);
+            
+        
+
+        marker_db1c6e415b91f653df0ae386b788e344.bindPopup(popup_6a51c825dbb50ae342d2ff3a6bd6565e)
+        ;
+
+        
+    
+    
+                marker_db1c6e415b91f653df0ae386b788e344.setIcon(icon_f9c667e024885da48efb7fe19d53118c);
+            
+    
+            var marker_d96b3f5cf63e65f6c1c86a586e0834e4 = L.marker(
+                [-6.284, 106.8426],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_5cfa2ba6b04f620871da3355a3f328c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f83321a4ee745ce8c775fa7af19f492f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6732502b9ba8c85832fef55f684a1b1 = $(`<div id="html_c6732502b9ba8c85832fef55f684a1b1" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Pasar Minggu</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_f83321a4ee745ce8c775fa7af19f492f.setContent(html_c6732502b9ba8c85832fef55f684a1b1);
+            
+        
+
+        marker_d96b3f5cf63e65f6c1c86a586e0834e4.bindPopup(popup_f83321a4ee745ce8c775fa7af19f492f)
+        ;
+
+        
+    
+    
+                marker_d96b3f5cf63e65f6c1c86a586e0834e4.setIcon(icon_5cfa2ba6b04f620871da3355a3f328c9);
+            
+    
+            var marker_2272de7b78ef96f62791072b9739b4d4 = L.marker(
+                [-6.2455, 106.8063],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_f69bba000a19e52be98198c449f38e64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73ea5e4d96c0c63b52e5be2a2520db84 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70381d9bd3e13c643dc6b0fbec167b61 = $(`<div id="html_70381d9bd3e13c643dc6b0fbec167b61" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Petogogan</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_73ea5e4d96c0c63b52e5be2a2520db84.setContent(html_70381d9bd3e13c643dc6b0fbec167b61);
+            
+        
+
+        marker_2272de7b78ef96f62791072b9739b4d4.bindPopup(popup_73ea5e4d96c0c63b52e5be2a2520db84)
+        ;
+
+        
+    
+    
+                marker_2272de7b78ef96f62791072b9739b4d4.setIcon(icon_f69bba000a19e52be98198c449f38e64);
+            
+    
+            var marker_03dc8048c83e0dfa62fa4933c1d8f8eb = L.marker(
+                [-6.2365, 106.8095],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_dae6b569a91b283c2181f7ef14ff8f54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_38a783040b6c00d69cbb75ba896dd044 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76665e997624acc3e61c85fd4a239374 = $(`<div id="html_76665e997624acc3e61c85fd4a239374" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Senopati</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_38a783040b6c00d69cbb75ba896dd044.setContent(html_76665e997624acc3e61c85fd4a239374);
+            
+        
+
+        marker_03dc8048c83e0dfa62fa4933c1d8f8eb.bindPopup(popup_38a783040b6c00d69cbb75ba896dd044)
+        ;
+
+        
+    
+    
+                marker_03dc8048c83e0dfa62fa4933c1d8f8eb.setIcon(icon_dae6b569a91b283c2181f7ef14ff8f54);
+            
+    
+            var marker_b048d964a88a7b9d220d527f821aede7 = L.marker(
+                [-6.2088, 106.8212],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_1dc585ebfff0d4aee72946c392f38307 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_550e2654e6ff4a33371e9acc5304c868 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e54f8318df21234e6eed4a1ba2fe3b5e = $(`<div id="html_e54f8318df21234e6eed4a1ba2fe3b5e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Panin Drive Thru</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_550e2654e6ff4a33371e9acc5304c868.setContent(html_e54f8318df21234e6eed4a1ba2fe3b5e);
+            
+        
+
+        marker_b048d964a88a7b9d220d527f821aede7.bindPopup(popup_550e2654e6ff4a33371e9acc5304c868)
+        ;
+
+        
+    
+    
+                marker_b048d964a88a7b9d220d527f821aede7.setIcon(icon_1dc585ebfff0d4aee72946c392f38307);
+            
+    
+            var marker_249f48fe72ad2cba9fdedaff083f8ad0 = L.marker(
+                [-6.1701, 106.8676],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_8599686339438659b52e3a273d0950fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b32b32510b778abddda934098081667 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4ae1553a62d8ef612b48db521173418 = $(`<div id="html_e4ae1553a62d8ef612b48db521173418" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cempaka Putih</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_1b32b32510b778abddda934098081667.setContent(html_e4ae1553a62d8ef612b48db521173418);
+            
+        
+
+        marker_249f48fe72ad2cba9fdedaff083f8ad0.bindPopup(popup_1b32b32510b778abddda934098081667)
+        ;
+
+        
+    
+    
+                marker_249f48fe72ad2cba9fdedaff083f8ad0.setIcon(icon_8599686339438659b52e3a273d0950fd);
+            
+    
+            var marker_2277a0130ce6affd81fa0077f6c0c443 = L.marker(
+                [-6.1746, 106.8105],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_7d7f9677c35e79bd9623b7b28632a2ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3a339f7c7b1c88b0040925064f8ff80d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f2d0bc9eb938901d26f16ad21ece272 = $(`<div id="html_0f2d0bc9eb938901d26f16ad21ece272" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cideng</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_3a339f7c7b1c88b0040925064f8ff80d.setContent(html_0f2d0bc9eb938901d26f16ad21ece272);
+            
+        
+
+        marker_2277a0130ce6affd81fa0077f6c0c443.bindPopup(popup_3a339f7c7b1c88b0040925064f8ff80d)
+        ;
+
+        
+    
+    
+                marker_2277a0130ce6affd81fa0077f6c0c443.setIcon(icon_7d7f9677c35e79bd9623b7b28632a2ff);
+            
+    
+            var marker_accafb1c7a759ca2a9f248c147a20ca7 = L.marker(
+                [-6.1938, 106.8413],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_5ae325b8d492331798978a230d44a3fa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6114153ef969e72d325e4602b011229a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be8dc4224260c826ca27d17e9af5aa6f = $(`<div id="html_be8dc4224260c826ca27d17e9af5aa6f" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cikini</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.7<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_6114153ef969e72d325e4602b011229a.setContent(html_be8dc4224260c826ca27d17e9af5aa6f);
+            
+        
+
+        marker_accafb1c7a759ca2a9f248c147a20ca7.bindPopup(popup_6114153ef969e72d325e4602b011229a)
+        ;
+
+        
+    
+    
+                marker_accafb1c7a759ca2a9f248c147a20ca7.setIcon(icon_5ae325b8d492331798978a230d44a3fa);
+            
+    
+            var marker_6dbb7dad2be15ce02f46e716f4e7e009 = L.marker(
+                [-6.1517, 106.7339],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_f66b3a432fcd87cd3db3da9d2efc5ea4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56718c9089b58628014993068eb81452 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a69370516a78a9b07cb89f82a412c81d = $(`<div id="html_a69370516a78a9b07cb89f82a412c81d" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Citra 6</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_56718c9089b58628014993068eb81452.setContent(html_a69370516a78a9b07cb89f82a412c81d);
+            
+        
+
+        marker_6dbb7dad2be15ce02f46e716f4e7e009.bindPopup(popup_56718c9089b58628014993068eb81452)
+        ;
+
+        
+    
+    
+                marker_6dbb7dad2be15ce02f46e716f4e7e009.setIcon(icon_f66b3a432fcd87cd3db3da9d2efc5ea4);
+            
+    
+            var marker_f803754015e057b5cb17d722945ae8e4 = L.marker(
+                [-6.1577, 106.8153],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_a7b2e455d7ccb47a74bbb9504ee6334f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_328af8a2452620468503ec913a9a2057 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_555860dbfed8adc3e9563fe2aa966aaf = $(`<div id="html_555860dbfed8adc3e9563fe2aa966aaf" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Citywalk Gajah Mada</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_328af8a2452620468503ec913a9a2057.setContent(html_555860dbfed8adc3e9563fe2aa966aaf);
+            
+        
+
+        marker_f803754015e057b5cb17d722945ae8e4.bindPopup(popup_328af8a2452620468503ec913a9a2057)
+        ;
+
+        
+    
+    
+                marker_f803754015e057b5cb17d722945ae8e4.setIcon(icon_a7b2e455d7ccb47a74bbb9504ee6334f);
+            
+    
+            var marker_bdafedd505ca55dcbfca6293efab5fb3 = L.marker(
+                [-6.1649, 106.7774],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_98d25672f0f0343398d0925cff31c4aa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4d2c65a97bd071628e58f4e3568e47bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41eb17b0c066c6699e677eb1eecfd716 = $(`<div id="html_41eb17b0c066c6699e677eb1eecfd716" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Daan Mogot</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_4d2c65a97bd071628e58f4e3568e47bf.setContent(html_41eb17b0c066c6699e677eb1eecfd716);
+            
+        
+
+        marker_bdafedd505ca55dcbfca6293efab5fb3.bindPopup(popup_4d2c65a97bd071628e58f4e3568e47bf)
+        ;
+
+        
+    
+    
+                marker_bdafedd505ca55dcbfca6293efab5fb3.setIcon(icon_98d25672f0f0343398d0925cff31c4aa);
+            
+    
+            var marker_1c60665346ef49d531b555a56eaf749e = L.marker(
+                [-6.1765, 106.7865],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_08534d4362a25ae3643a266daa09f8cd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_895f962bf3c0dd8f1c5ab3fb185f47b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8ca8027104aab0e83834cfd96b1299fd = $(`<div id="html_8ca8027104aab0e83834cfd96b1299fd" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Tanjung Duren</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_895f962bf3c0dd8f1c5ab3fb185f47b3.setContent(html_8ca8027104aab0e83834cfd96b1299fd);
+            
+        
+
+        marker_1c60665346ef49d531b555a56eaf749e.bindPopup(popup_895f962bf3c0dd8f1c5ab3fb185f47b3)
+        ;
+
+        
+    
+    
+                marker_1c60665346ef49d531b555a56eaf749e.setIcon(icon_08534d4362a25ae3643a266daa09f8cd);
+            
+    
+            var marker_b4da7cccb17ca273c58fb5ca83f988f5 = L.marker(
+                [-6.1866, 106.7417],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_62df9dfc1f4d5a4258d1d99d290cec17 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_567d3a6bd2fdb8dc22cac9f424ac1d7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0831de787dc7b4d39d797401cc8cbf37 = $(`<div id="html_0831de787dc7b4d39d797401cc8cbf37" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Puri Kembangan</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.9<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_567d3a6bd2fdb8dc22cac9f424ac1d7c.setContent(html_0831de787dc7b4d39d797401cc8cbf37);
+            
+        
+
+        marker_b4da7cccb17ca273c58fb5ca83f988f5.bindPopup(popup_567d3a6bd2fdb8dc22cac9f424ac1d7c)
+        ;
+
+        
+    
+    
+                marker_b4da7cccb17ca273c58fb5ca83f988f5.setIcon(icon_62df9dfc1f4d5a4258d1d99d290cec17);
+            
+    
+            var marker_fcb1428ec0088228130e04ba73bce3b3 = L.marker(
+                [-6.246, 106.7459],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_0088b67ab4b258affe0ce8f4bd4aa194 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0eab858cecbda224743416c9dfeadfcf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4d83db1520351eb0372eac3475f32ed = $(`<div id="html_b4d83db1520351eb0372eac3475f32ed" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Pesanggrahan</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_0eab858cecbda224743416c9dfeadfcf.setContent(html_b4d83db1520351eb0372eac3475f32ed);
+            
+        
+
+        marker_fcb1428ec0088228130e04ba73bce3b3.bindPopup(popup_0eab858cecbda224743416c9dfeadfcf)
+        ;
+
+        
+    
+    
+                marker_fcb1428ec0088228130e04ba73bce3b3.setIcon(icon_0088b67ab4b258affe0ce8f4bd4aa194);
+            
+    
+            var marker_fe6182e0f13a9bef4a7d697df1408c3d = L.marker(
+                [-6.1684, 106.7752],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_f2ab33b20c0df71355705f6eec46f08f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_129d354f9f0cfd3c7870e0cf2833ffc6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad19dcb34321851809b1358279dbb99e = $(`<div id="html_ad19dcb34321851809b1358279dbb99e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Anggrek Cakra</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_129d354f9f0cfd3c7870e0cf2833ffc6.setContent(html_ad19dcb34321851809b1358279dbb99e);
+            
+        
+
+        marker_fe6182e0f13a9bef4a7d697df1408c3d.bindPopup(popup_129d354f9f0cfd3c7870e0cf2833ffc6)
+        ;
+
+        
+    
+    
+                marker_fe6182e0f13a9bef4a7d697df1408c3d.setIcon(icon_f2ab33b20c0df71355705f6eec46f08f);
+            
+    
+            var marker_6f7df9a1728ee8d577d06ec36e7a1108 = L.marker(
+                [-6.2187, 106.7295],
+                {
+}
+            ).addTo(feature_group_8b4dd574cb47b6f56df6fb0a88da10ef);
+        
+    
+            var icon_a18d29a1a15f2c7dca9727eef399485e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56e9c1b971d58a13a49974cc655f4e9e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d371451f34d43d049189d6b013dea8a4 = $(`<div id="html_d371451f34d43d049189d6b013dea8a4" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Joglo Raya</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: CafeStore<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_56e9c1b971d58a13a49974cc655f4e9e.setContent(html_d371451f34d43d049189d6b013dea8a4);
+            
+        
+
+        marker_6f7df9a1728ee8d577d06ec36e7a1108.bindPopup(popup_56e9c1b971d58a13a49974cc655f4e9e)
+        ;
+
+        
+    
+    
+                marker_6f7df9a1728ee8d577d06ec36e7a1108.setIcon(icon_a18d29a1a15f2c7dca9727eef399485e);
+            
+    
+            feature_group_8b4dd574cb47b6f56df6fb0a88da10ef.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var feature_group_e34870ef5ee07c9845ab36311b17c2c7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_bde88225624e3cba6cd9ba13d928ac5c = L.marker(
+                [-6.2149, 106.8726],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_ab7feef1dea2fc12678cd9b042e98875 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_55dc0d609dfa7702d42eb1db7a91be6e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_735c6618028772139718eef4ffcc3c96 = $(`<div id="html_735c6618028772139718eef4ffcc3c96" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Mall Basura</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Timur     </div>     </div>`)[0];
+                popup_55dc0d609dfa7702d42eb1db7a91be6e.setContent(html_735c6618028772139718eef4ffcc3c96);
+            
+        
+
+        marker_bde88225624e3cba6cd9ba13d928ac5c.bindPopup(popup_55dc0d609dfa7702d42eb1db7a91be6e)
+        ;
+
+        
+    
+    
+                marker_bde88225624e3cba6cd9ba13d928ac5c.setIcon(icon_ab7feef1dea2fc12678cd9b042e98875);
+            
+    
+            var marker_8568b40c7a1bd9ccf9682e0506058783 = L.marker(
+                [-6.2319, 106.8865],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_250d1bd1fd498b8554a4c7a2335efd7a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_75a5a25469c4d71329bf67a5b65ebc86 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a09fd8f25560499a90cc576d0d1b03d = $(`<div id="html_8a09fd8f25560499a90cc576d0d1b03d" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Pondok Bambu</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Timur     </div>     </div>`)[0];
+                popup_75a5a25469c4d71329bf67a5b65ebc86.setContent(html_8a09fd8f25560499a90cc576d0d1b03d);
+            
+        
+
+        marker_8568b40c7a1bd9ccf9682e0506058783.bindPopup(popup_75a5a25469c4d71329bf67a5b65ebc86)
+        ;
+
+        
+    
+    
+                marker_8568b40c7a1bd9ccf9682e0506058783.setIcon(icon_250d1bd1fd498b8554a4c7a2335efd7a);
+            
+    
+            var marker_d39554afed55b6f363944adb512d259a = L.marker(
+                [-6.3032, 106.8618],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_d84e3ead0f0287305d7a4581f8a00a4c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5691f809cb8485418001461bb960fb66 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b97ab0c0caff4f2fa8950842ce34767b = $(`<div id="html_b97ab0c0caff4f2fa8950842ce34767b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Lotte Pasar Rebo</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Timur     </div>     </div>`)[0];
+                popup_5691f809cb8485418001461bb960fb66.setContent(html_b97ab0c0caff4f2fa8950842ce34767b);
+            
+        
+
+        marker_d39554afed55b6f363944adb512d259a.bindPopup(popup_5691f809cb8485418001461bb960fb66)
+        ;
+
+        
+    
+    
+                marker_d39554afed55b6f363944adb512d259a.setIcon(icon_d84e3ead0f0287305d7a4581f8a00a4c);
+            
+    
+            var marker_d7ebf8c757f0c9fb134f040fbb5dcaa4 = L.marker(
+                [-6.3654, 106.8719],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_84c787f1274605a6da7b895b5cc7d3e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61bd89c89d682e9a6675d3aaed68cc31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e89f0b90f7e8090ea5d4b8ef1ee26e3a = $(`<div id="html_e89f0b90f7e8090ea5d4b8ef1ee26e3a" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cibubur Junction</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Timur     </div>     </div>`)[0];
+                popup_61bd89c89d682e9a6675d3aaed68cc31.setContent(html_e89f0b90f7e8090ea5d4b8ef1ee26e3a);
+            
+        
+
+        marker_d7ebf8c757f0c9fb134f040fbb5dcaa4.bindPopup(popup_61bd89c89d682e9a6675d3aaed68cc31)
+        ;
+
+        
+    
+    
+                marker_d7ebf8c757f0c9fb134f040fbb5dcaa4.setIcon(icon_84c787f1274605a6da7b895b5cc7d3e8);
+            
+    
+            var marker_1c637d2ef4deafcb51ce955f42e36293 = L.marker(
+                [-6.1528, 106.905],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_f0fe4d429a730b44d0c581ed5f6f27dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_277e1ffd9168cc1b693a1c1dfd0b6c08 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_505eac93b9d80f10aed0c7233264a6d3 = $(`<div id="html_505eac93b9d80f10aed0c7233264a6d3" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Ruko Kelapa Gading</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Utara     </div>     </div>`)[0];
+                popup_277e1ffd9168cc1b693a1c1dfd0b6c08.setContent(html_505eac93b9d80f10aed0c7233264a6d3);
+            
+        
+
+        marker_1c637d2ef4deafcb51ce955f42e36293.bindPopup(popup_277e1ffd9168cc1b693a1c1dfd0b6c08)
+        ;
+
+        
+    
+    
+                marker_1c637d2ef4deafcb51ce955f42e36293.setIcon(icon_f0fe4d429a730b44d0c581ed5f6f27dc);
+            
+    
+            var marker_c3ace1ca5c57b91a9fcfe2b467912874 = L.marker(
+                [-6.1406, 106.8709],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_c2332372dae080271288dd307855ebb1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c06a227a5dc2ebd7e7df40548481e899 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f94f2caec97fa829fe5ade07c5339041 = $(`<div id="html_f94f2caec97fa829fe5ade07c5339041" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Sunter Mall</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.9<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Utara     </div>     </div>`)[0];
+                popup_c06a227a5dc2ebd7e7df40548481e899.setContent(html_f94f2caec97fa829fe5ade07c5339041);
+            
+        
+
+        marker_c3ace1ca5c57b91a9fcfe2b467912874.bindPopup(popup_c06a227a5dc2ebd7e7df40548481e899)
+        ;
+
+        
+    
+    
+                marker_c3ace1ca5c57b91a9fcfe2b467912874.setIcon(icon_c2332372dae080271288dd307855ebb1);
+            
+    
+            var marker_094384c2b46e04845591df2a8923b44a = L.marker(
+                [-6.3038, 106.8347],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_c71658331a8e50950510cb88db247371 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_33438b537b13771ab7f9e12e50698f98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc7b1b62eee434aa040449cf2ecffa6b = $(`<div id="html_cc7b1b62eee434aa040449cf2ecffa6b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">AEON Tanjung Barat</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_33438b537b13771ab7f9e12e50698f98.setContent(html_cc7b1b62eee434aa040449cf2ecffa6b);
+            
+        
+
+        marker_094384c2b46e04845591df2a8923b44a.bindPopup(popup_33438b537b13771ab7f9e12e50698f98)
+        ;
+
+        
+    
+    
+                marker_094384c2b46e04845591df2a8923b44a.setIcon(icon_c71658331a8e50950510cb88db247371);
+            
+    
+            var marker_21537be4de599d0d823cee58cf541390 = L.marker(
+                [-6.2442, 106.7848],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_5b5d67a79c50ded6aa162cb82e615bf6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56e1b8cfad121b343cea3bf2ae4055eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2cd4f00a2f42e9dfb8d99bd12a053577 = $(`<div id="html_2cd4f00a2f42e9dfb8d99bd12a053577" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Gandaria City Mall</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_56e1b8cfad121b343cea3bf2ae4055eb.setContent(html_2cd4f00a2f42e9dfb8d99bd12a053577);
+            
+        
+
+        marker_21537be4de599d0d823cee58cf541390.bindPopup(popup_56e1b8cfad121b343cea3bf2ae4055eb)
+        ;
+
+        
+    
+    
+                marker_21537be4de599d0d823cee58cf541390.setIcon(icon_5b5d67a79c50ded6aa162cb82e615bf6);
+            
+    
+            var marker_88a322ee2a6920b62faa5950e00538f7 = L.marker(
+                [-6.2217, 106.8323],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_04c9e1f4034ce1877053b4cd975426c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_89780ba903d837f36363aff9e0f738b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6fe06b44b7638634f37e0aeb5a75b7a8 = $(`<div id="html_6fe06b44b7638634f37e0aeb5a75b7a8" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Mall Ambassador</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_89780ba903d837f36363aff9e0f738b2.setContent(html_6fe06b44b7638634f37e0aeb5a75b7a8);
+            
+        
+
+        marker_88a322ee2a6920b62faa5950e00538f7.bindPopup(popup_89780ba903d837f36363aff9e0f738b2)
+        ;
+
+        
+    
+    
+                marker_88a322ee2a6920b62faa5950e00538f7.setIcon(icon_04c9e1f4034ce1877053b4cd975426c4);
+            
+    
+            var marker_ac9dacc8944a1d3cb38fa250b2632d3d = L.marker(
+                [-6.2207, 106.8329],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_e3983c54ac3f584fcd88cd34376641dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b4012b93fbd96b753476262d9f9f915 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b2a0c83af2049296afe12f15774a1c3 = $(`<div id="html_5b2a0c83af2049296afe12f15774a1c3" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Plaza Festival</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_4b4012b93fbd96b753476262d9f9f915.setContent(html_5b2a0c83af2049296afe12f15774a1c3);
+            
+        
+
+        marker_ac9dacc8944a1d3cb38fa250b2632d3d.bindPopup(popup_4b4012b93fbd96b753476262d9f9f915)
+        ;
+
+        
+    
+    
+                marker_ac9dacc8944a1d3cb38fa250b2632d3d.setIcon(icon_e3983c54ac3f584fcd88cd34376641dd);
+            
+    
+            var marker_ad6e8175b1e6256f681195ce936235ba = L.marker(
+                [-6.1609, 106.8466],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_124f0c0af370e0bd33d12f560dee0e23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f2f52719950096119d0c79ff6cb8533 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af8df0ce2207918be94d78361aeb5e5d = $(`<div id="html_af8df0ce2207918be94d78361aeb5e5d" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Citra Xperience</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_3f2f52719950096119d0c79ff6cb8533.setContent(html_af8df0ce2207918be94d78361aeb5e5d);
+            
+        
+
+        marker_ad6e8175b1e6256f681195ce936235ba.bindPopup(popup_3f2f52719950096119d0c79ff6cb8533)
+        ;
+
+        
+    
+    
+                marker_ad6e8175b1e6256f681195ce936235ba.setIcon(icon_124f0c0af370e0bd33d12f560dee0e23);
+            
+    
+            var marker_27868874876245a3536404fd742b7126 = L.marker(
+                [-6.1933, 106.8219],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_0e6d0003d14489b952c6d264a15de5ba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4cd53b96b6fbc97f66d88a33c5783f5f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88e4c98888ca17e614ae9ee0f7a9c52f = $(`<div id="html_88e4c98888ca17e614ae9ee0f7a9c52f" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Plaza Indonesia</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.5<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_4cd53b96b6fbc97f66d88a33c5783f5f.setContent(html_88e4c98888ca17e614ae9ee0f7a9c52f);
+            
+        
+
+        marker_27868874876245a3536404fd742b7126.bindPopup(popup_4cd53b96b6fbc97f66d88a33c5783f5f)
+        ;
+
+        
+    
+    
+                marker_27868874876245a3536404fd742b7126.setIcon(icon_0e6d0003d14489b952c6d264a15de5ba);
+            
+    
+            var marker_ccc8939ccc92cad84b73b3c22f2ed4c5 = L.marker(
+                [-6.1917, 106.8227],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_4be62b01d89201ed5bc800c1490ac4bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d22555a16038f47f593a2cc52008f685 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1eb1904cb01189f961f9a5fda2bab15 = $(`<div id="html_e1eb1904cb01189f961f9a5fda2bab15" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Djakarta Theater</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_d22555a16038f47f593a2cc52008f685.setContent(html_e1eb1904cb01189f961f9a5fda2bab15);
+            
+        
+
+        marker_ccc8939ccc92cad84b73b3c22f2ed4c5.bindPopup(popup_d22555a16038f47f593a2cc52008f685)
+        ;
+
+        
+    
+    
+                marker_ccc8939ccc92cad84b73b3c22f2ed4c5.setIcon(icon_4be62b01d89201ed5bc800c1490ac4bc);
+            
+    
+            var marker_4ddaa7e34801718615dd62058eeeb4ef = L.marker(
+                [-6.1784, 106.7927],
+                {
+}
+            ).addTo(feature_group_e34870ef5ee07c9845ab36311b17c2c7);
+        
+    
+            var icon_fa75d3f0bfb252fe01ac534b381dc4fc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3acfa3566c5b96b3f08a5bd5a349ef6b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ea8c6b8547017a0e36d06b98573e41c = $(`<div id="html_3ea8c6b8547017a0e36d06b98573e41c" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Mall Taman Anggrek</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Shopping Mall<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Barat     </div>     </div>`)[0];
+                popup_3acfa3566c5b96b3f08a5bd5a349ef6b.setContent(html_3ea8c6b8547017a0e36d06b98573e41c);
+            
+        
+
+        marker_4ddaa7e34801718615dd62058eeeb4ef.bindPopup(popup_3acfa3566c5b96b3f08a5bd5a349ef6b)
+        ;
+
+        
+    
+    
+                marker_4ddaa7e34801718615dd62058eeeb4ef.setIcon(icon_fa75d3f0bfb252fe01ac534b381dc4fc);
+            
+    
+            feature_group_e34870ef5ee07c9845ab36311b17c2c7.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var feature_group_1fa29a0eec4e62054b982ef91cf3a042 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_350ba065c45042ed8e2005fe40ad5016 = L.marker(
+                [-6.1597, 106.9056],
+                {
+}
+            ).addTo(feature_group_1fa29a0eec4e62054b982ef91cf3a042);
+        
+    
+            var icon_6112d98e924bd8c18b2969f6a1878cf3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dba49d7a00e40f33862b13e882270a09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a12aabfb4de771a0e0b1a78f0d3087e8 = $(`<div id="html_a12aabfb4de771a0e0b1a78f0d3087e8" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Wisma Gading Permai</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Apartement<br>       <b>Rating</b>: ⭐ 4.9<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Utara     </div>     </div>`)[0];
+                popup_dba49d7a00e40f33862b13e882270a09.setContent(html_a12aabfb4de771a0e0b1a78f0d3087e8);
+            
+        
+
+        marker_350ba065c45042ed8e2005fe40ad5016.bindPopup(popup_dba49d7a00e40f33862b13e882270a09)
+        ;
+
+        
+    
+    
+                marker_350ba065c45042ed8e2005fe40ad5016.setIcon(icon_6112d98e924bd8c18b2969f6a1878cf3);
+            
+    
+            var marker_adf7f97e0540b3ffb1b7323dc002c525 = L.marker(
+                [-6.2577, 106.852],
+                {
+}
+            ).addTo(feature_group_1fa29a0eec4e62054b982ef91cf3a042);
+        
+    
+            var icon_8a0d27f5f123460fc74538b284db5c42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee1f77328585a779a29a0b81183957d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4e953e9d81a6cec72b6b0708e56ff9e = $(`<div id="html_e4e953e9d81a6cec72b6b0708e56ff9e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Kalibata City Apartement</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Apartement<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_ee1f77328585a779a29a0b81183957d7.setContent(html_e4e953e9d81a6cec72b6b0708e56ff9e);
+            
+        
+
+        marker_adf7f97e0540b3ffb1b7323dc002c525.bindPopup(popup_ee1f77328585a779a29a0b81183957d7)
+        ;
+
+        
+    
+    
+                marker_adf7f97e0540b3ffb1b7323dc002c525.setIcon(icon_8a0d27f5f123460fc74538b284db5c42);
+            
+    
+            var marker_97bb332e91dce006d0b154fab926230c = L.marker(
+                [-6.1944, 106.8703],
+                {
+}
+            ).addTo(feature_group_1fa29a0eec4e62054b982ef91cf3a042);
+        
+    
+            var icon_83bdf0309b72dc950992498924f6ff10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47fad681a5c1dd86214fc828cc6730fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b40ccf4642b3aa31176f5b9c10e9a1a = $(`<div id="html_2b40ccf4642b3aa31176f5b9c10e9a1a" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Green Pramuka Square Mall</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Apartement<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_47fad681a5c1dd86214fc828cc6730fb.setContent(html_2b40ccf4642b3aa31176f5b9c10e9a1a);
+            
+        
+
+        marker_97bb332e91dce006d0b154fab926230c.bindPopup(popup_47fad681a5c1dd86214fc828cc6730fb)
+        ;
+
+        
+    
+    
+                marker_97bb332e91dce006d0b154fab926230c.setIcon(icon_83bdf0309b72dc950992498924f6ff10);
+            
+    
+            var marker_c3eb7e08ae4156c343e79df98621e22d = L.marker(
+                [-6.1949, 106.8218],
+                {
+}
+            ).addTo(feature_group_1fa29a0eec4e62054b982ef91cf3a042);
+        
+    
+            var icon_78e26a801d2354b8f13abd22acbbf3f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6c37121457a659b776bbd8af15a84fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf93738cf60f70d9f4cb1ee2be40d964 = $(`<div id="html_bf93738cf60f70d9f4cb1ee2be40d964" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Thamrin Residence Apartement</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Apartement<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Pusat     </div>     </div>`)[0];
+                popup_b6c37121457a659b776bbd8af15a84fe.setContent(html_bf93738cf60f70d9f4cb1ee2be40d964);
+            
+        
+
+        marker_c3eb7e08ae4156c343e79df98621e22d.bindPopup(popup_b6c37121457a659b776bbd8af15a84fe)
+        ;
+
+        
+    
+    
+                marker_c3eb7e08ae4156c343e79df98621e22d.setIcon(icon_78e26a801d2354b8f13abd22acbbf3f8);
+            
+    
+            feature_group_1fa29a0eec4e62054b982ef91cf3a042.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var feature_group_6361e31fd294032d3f25a713fb545ffb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_735ecbcb845ff2b6824fec774f3e90c5 = L.marker(
+                [-6.2914, 106.7946],
+                {
+}
+            ).addTo(feature_group_6361e31fd294032d3f25a713fb545ffb);
+        
+    
+            var icon_1d4475006d6cfa4f406e677fdd86d9d4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_51c25e85852a050a3041575113150574 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f0c26c0a92b97aab75d3b4cea7619b9e = $(`<div id="html_f0c26c0a92b97aab75d3b4cea7619b9e" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Cilandak Business Square</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Office Tower<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_51c25e85852a050a3041575113150574.setContent(html_f0c26c0a92b97aab75d3b4cea7619b9e);
+            
+        
+
+        marker_735ecbcb845ff2b6824fec774f3e90c5.bindPopup(popup_51c25e85852a050a3041575113150574)
+        ;
+
+        
+    
+    
+                marker_735ecbcb845ff2b6824fec774f3e90c5.setIcon(icon_1d4475006d6cfa4f406e677fdd86d9d4);
+            
+    
+            var marker_2925cb9cbd7609b4185b05647994cfda = L.marker(
+                [-6.2241, 106.8326],
+                {
+}
+            ).addTo(feature_group_6361e31fd294032d3f25a713fb545ffb);
+        
+    
+            var icon_2e770599e88a510492098b8c645cc03d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d709b1328660ee8571719f311de31f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eeb87d986efc636e6422041ae462d912 = $(`<div id="html_eeb87d986efc636e6422041ae462d912" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Gama Tower</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Office Tower<br>       <b>Rating</b>: ⭐ 4.7<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_2d709b1328660ee8571719f311de31f5.setContent(html_eeb87d986efc636e6422041ae462d912);
+            
+        
+
+        marker_2925cb9cbd7609b4185b05647994cfda.bindPopup(popup_2d709b1328660ee8571719f311de31f5)
+        ;
+
+        
+    
+    
+                marker_2925cb9cbd7609b4185b05647994cfda.setIcon(icon_2e770599e88a510492098b8c645cc03d);
+            
+    
+            var marker_8c60299d4107f2350511f96a84da5b71 = L.marker(
+                [-6.2249, 106.8284],
+                {
+}
+            ).addTo(feature_group_6361e31fd294032d3f25a713fb545ffb);
+        
+    
+            var icon_63bdb7efd31be3c8b8935dd6c72cf2d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bcdd9345f38331716f2be04d42caf190 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ca710f88c50097b1aecdff4c9cdbe9b = $(`<div id="html_1ca710f88c50097b1aecdff4c9cdbe9b" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Menara Standard Chartered</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Office Tower<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_bcdd9345f38331716f2be04d42caf190.setContent(html_1ca710f88c50097b1aecdff4c9cdbe9b);
+            
+        
+
+        marker_8c60299d4107f2350511f96a84da5b71.bindPopup(popup_bcdd9345f38331716f2be04d42caf190)
+        ;
+
+        
+    
+    
+                marker_8c60299d4107f2350511f96a84da5b71.setIcon(icon_63bdb7efd31be3c8b8935dd6c72cf2d0);
+            
+    
+            var marker_6c2015500c9a59a0656c9524f95e8482 = L.marker(
+                [-6.2146, 106.8225],
+                {
+}
+            ).addTo(feature_group_6361e31fd294032d3f25a713fb545ffb);
+        
+    
+            var icon_0dac975e7a89a1e713fe43ce5f06a967 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7255250255c934ee954ff9ad0ccb5a3b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9e5d4a48dd86f6ffadf9b7b5a5aa95c = $(`<div id="html_c9e5d4a48dd86f6ffadf9b7b5a5aa95c" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">WTC Sudirman</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Office Tower<br>       <b>Rating</b>: ⭐ 4.7<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_7255250255c934ee954ff9ad0ccb5a3b.setContent(html_c9e5d4a48dd86f6ffadf9b7b5a5aa95c);
+            
+        
+
+        marker_6c2015500c9a59a0656c9524f95e8482.bindPopup(popup_7255250255c934ee954ff9ad0ccb5a3b)
+        ;
+
+        
+    
+    
+                marker_6c2015500c9a59a0656c9524f95e8482.setIcon(icon_0dac975e7a89a1e713fe43ce5f06a967);
+            
+    
+            var marker_16d0b3b89322cde2f50012c194dce266 = L.marker(
+                [-6.2153, 106.8217],
+                {
+}
+            ).addTo(feature_group_6361e31fd294032d3f25a713fb545ffb);
+        
+    
+            var icon_42c29d3d0c27bcb4431c251a33281385 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_94b7cc7aa1a1531795823719de880eca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_275c7477a1980510ad77d71dcefffb09 = $(`<div id="html_275c7477a1980510ad77d71dcefffb09" style="width: 100.0%; height: 100.0%;">     <div style="width:250px">       <h4 style="margin-bottom:5px;">Millennium Centennial Center</h4>       <hr style="margin:4px 0;">       <b>Jenis Wisata</b>: Office Tower<br>       <b>Rating</b>: ⭐ 4.8<br>       <b>Kelas Rating</b>: Tinggi<br>       <b>Kabupaten</b>: Jakarta Selatan     </div>     </div>`)[0];
+                popup_94b7cc7aa1a1531795823719de880eca.setContent(html_275c7477a1980510ad77d71dcefffb09);
+            
+        
+
+        marker_16d0b3b89322cde2f50012c194dce266.bindPopup(popup_94b7cc7aa1a1531795823719de880eca)
+        ;
+
+        
+    
+    
+                marker_16d0b3b89322cde2f50012c194dce266.setIcon(icon_42c29d3d0c27bcb4431c251a33281385);
+            
+    
+            feature_group_6361e31fd294032d3f25a713fb545ffb.addTo(map_21c59882562e9e4c981e087138296bc9);
+        
+    
+            var layer_control_516fa4dce86f88cb0d59d097cdce8dfa_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_65207069833294e6bd74d3c2ed1dd112,
+                    "Citra Satelit (Esri)" : tile_layer_a233498ebd917df5623a0a7f9a88d3a2,
+                    "Carto Light" : tile_layer_af2053ad3b3c5af9b11e428028c7e305,
+                    "Topografi" : tile_layer_0314773d055dc6a1fca387812deffff5,
+                },
+                overlays :  {
+                    "Cafe Store" : feature_group_8b4dd574cb47b6f56df6fb0a88da10ef,
+                    "Shopping Mall" : feature_group_e34870ef5ee07c9845ab36311b17c2c7,
+                    "Apartement" : feature_group_1fa29a0eec4e62054b982ef91cf3a042,
+                    "Office Tower" : feature_group_6361e31fd294032d3f25a713fb545ffb,
+                },
+            };
+            let layer_control_516fa4dce86f88cb0d59d097cdce8dfa = L.control.layers(
+                layer_control_516fa4dce86f88cb0d59d097cdce8dfa_layers.base_layers,
+                layer_control_516fa4dce86f88cb0d59d097cdce8dfa_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_21c59882562e9e4c981e087138296bc9);
+
+        
+</script>
+</html>
